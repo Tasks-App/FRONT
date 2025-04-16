@@ -1,0 +1,43 @@
+<div class="tasks-container">
+  <app-title [title]="title" />
+
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Colonne ID -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Colonne Titre -->
+    <ng-container matColumnDef="label">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Titre </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.label }} </mat-cell>
+    </ng-container>
+
+    <!-- Colonne Description -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.description }} </mat-cell>
+    </ng-container>
+
+    <!-- Colonne Statut -->
+    <ng-container matColumnDef="completed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Statut </mat-header-cell>
+      <mat-cell *matCellDef="let task">
+        <span
+          class="status-badge"
+          [ngClass]="{ 'status-pending': !task.completed, 'status-completed': task.completed }"
+        >
+          {{ task.completed ? 'Complétée' : 'En attente' }}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="onRowClick(row)"
+      class="clickable-row"
+    ></mat-row>
+  </mat-table>
+</div>
