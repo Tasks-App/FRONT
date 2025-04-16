@@ -1,0 +1,26 @@
+<div class="set-task-container">
+  <app-title [title]="taskId ? 'Modifier la Tâche #' + taskId : 'Créer une Nouvelle Tâche'" />
+
+  <form (ngSubmit)="saveTask()" #taskForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Titre</mat-label>
+      <input matInput [(ngModel)]="task.label" name="label" #labelInput="ngModel" [readonly]="taskId !== 0" required />
+      <mat-error *ngIf="labelInput.invalid && labelInput.touched">
+        Le titre est obligatoire.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="task.description" name="description" [readonly]="taskId !== 0"></textarea>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="task.completed" name="completed">
+      Complétée
+    </mat-checkbox>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+      {{ taskId ? 'Modifier' : 'Créer' }}
+    </button>
+  </form>
+</div>
