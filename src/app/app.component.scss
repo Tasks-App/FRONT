@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Occupe toute la hauteur de la fenêtre */
+}
+
+app-header-menu {
+  flex-shrink: 0; /* L'en-tête ne se rétrécit pas */
+}
+
+app-centered-container {
+  flex-grow: 1; /* Le conteneur central occupe l'espace restant */
+}
