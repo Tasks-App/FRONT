@@ -1,0 +1,23 @@
+mat-toolbar {
+  background-color: #6200ea; /* Couleur principale de la barre de menu */
+  display: flex;
+  padding: 0 1rem;
+
+  button {
+    color: white; /* Couleur du texte */
+    font-size: 1.1rem; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    padding: 1.4rem 1.4rem; /* Espacement interne */
+    cursor: pointer; /* Curseur pointeur pour les boutons */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions pour les effets */
+
+    &:hover {
+      background-color: #3700b3; /* Couleur au survol */
+    }
+
+    &:active {
+      background-color: #1a0080; /* Couleur lors du clic */
+      transform: scale(0.95); /* Effet de clic */
+    }
+  }
+}
