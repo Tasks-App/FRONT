@@ -1,0 +1,42 @@
+
+h1.title {
+  display: block; /* Permet au h1 de s'ajuster à la taille du texte */
+  text-align: center;
+  font-size: 2.8rem; /* Titre légèrement réduit */
+  font-weight: bold;
+  color: rgb(105, 105, 105); /* Couleur du texte */
+  margin: 0 auto 4rem; /* Plus d'espace entre le titre et la table */
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ecdffa, #ccdeff); /* Dégradé violet-bleu */
+  padding: 1.5rem;
+  border-radius: 12px; /* Coins arrondis élégants */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Ombre plus douce pour un effet de profondeur */
+  position: relative;
+  overflow: hidden;
+  width: fit-content; /* Ajuste la largeur au contenu */
+
+  /* Effet de lumière animée */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(252, 248, 255, 0.39);
+    transform: skewX(-45deg);
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    left: 125%;
+  }
+
+  span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Bordure semi-transparente */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+  }
+ }
